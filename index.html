@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Contagem até 8 de Novembro</title>
+
+<style>
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg,#000428,#004e92);
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.box {
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px cyan;
+}
+
+#timer {
+    font-size: 60px;
+    margin-top: 20px;
+    color: cyan;
+    text-shadow: 0 0 20px cyan;
+}
+
+h1 {
+    margin: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>Contagem até 8 de Novembro</h1>
+
+<div id="timer">00d 00h 00m 00s</div>
+
+</div>
+
+<script>
+
+const destino = new Date("Nov 8, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+    const agora = new Date().getTime();
+
+    const tempo = destino - agora;
+
+    const dias = Math.floor(tempo / (1000*60*60*24));
+    const horas = Math.floor((tempo % (1000*60*60*24)) / (1000*60*60));
+    const minutos = Math.floor((tempo % (1000*60*60)) / (1000*60));
+    const segundos = Math.floor((tempo % (1000*60)) / 1000);
+
+    document.getElementById("timer").innerHTML =
+        dias + "d " +
+        horas + "h " +
+        minutos + "m " +
+        segundos + "s ";
+
+},1000);
+
+</script>
+
+</body>
+</html>
